@@ -29,6 +29,7 @@
 
       # Misc
       # ----
+      vokoscreen
       spectacle
       xclip
       xdotool
