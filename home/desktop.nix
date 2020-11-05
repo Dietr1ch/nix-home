@@ -41,10 +41,11 @@
   };
 
   services = {
-    # kdeconnect = {
-    #   enable = true;
-    #   indicator = true;
-    # };
+    kdeconnect = {
+      enable = true;
+      indicator = true;
+    };
+
     syncthing = {
       enable = true;
       tray = true;
