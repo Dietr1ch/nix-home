@@ -21,7 +21,7 @@
       controlMaster = "auto";
       controlPath = "/run/user/%i/ssh-socket-%l-%r@%h:%p";
       serverAliveInterval = 10;  # 10s
-      serverAliveCountMax = 3;   # Disconnect at the 3rd lost keep-alive.
+      # serverAliveCountMax = 3;   # Disconnect at the 3rd lost keep-alive.
       extraConfig = ''
         Include /home/dietr1ch/.config/ssh/config.d/*
       '';
