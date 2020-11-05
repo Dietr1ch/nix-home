@@ -279,6 +279,14 @@ with import <nixpkgs> {};
       exa
       ripgrep
       fd
+      tokei
+
+      # Tools
+      dust
+      hyperfine
+      bottom
+      tealdeer
+      bandwhich
     ];
 
     file = {
