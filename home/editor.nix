@@ -8,7 +8,7 @@
 
   home = {
     packages = with pkgs; [
-      # emacs
+      # emacs  # (Using programs.emacs)
       neovim
 
       meld

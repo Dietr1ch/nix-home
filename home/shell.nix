@@ -288,6 +288,7 @@ with import <nixpkgs> {};
       yakuake
 
       # Shells
+      # fish  # (Using programs.fish)
       nushell
 
       # Fancy stuff
