@@ -1,0 +1,3 @@
+* [[https://github.com/rycee/home-manager][Home-manager]] configuration
+
+  These are the contents of my =~/.config/nixpkgs=
