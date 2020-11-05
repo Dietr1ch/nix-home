@@ -26,5 +26,8 @@
       monero
     ];
   };
+
+  # Hacks
+  manual.manpages.enable = false;
 }
 
