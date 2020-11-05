@@ -5,6 +5,8 @@
     packages = with pkgs; [
       # Guitar tabs
       tuxguitar
+      fluidsynth
+      qsynth
 
       # Jack
       jack2
