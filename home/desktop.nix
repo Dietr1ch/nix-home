@@ -14,6 +14,8 @@
       # Extract
       ark
       unzip
+      # Encrypt
+      plasma-vault
 
       # Video
       # -----
