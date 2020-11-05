@@ -10,4 +10,10 @@
   #     ];
   #   };
   };
+
+  home = {
+    packages = with pkgs; [
+      gmailctl
+    ];
+  };
 }
