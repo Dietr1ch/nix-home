@@ -286,6 +286,8 @@ with import <nixpkgs> {};
       alacritty
       konsole
       yakuake
+      # Fonts
+      powerline-fonts
 
       # Shells
       # fish  # (Using programs.fish)
