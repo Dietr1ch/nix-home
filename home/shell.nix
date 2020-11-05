@@ -234,7 +234,7 @@ with import <nixpkgs> {};
 
 
         # 2020-11-03 Tue 🕙 22:21:33  ⏳23s99ms
-        # ~ on  Dietr1ch [✘!] ❯
+        # /a/b/c/one/two/three/four  master [✘!] ❯
         # echo "aoeu"
         format = builtins.concatStringsSep "" [
           "$jobs"
