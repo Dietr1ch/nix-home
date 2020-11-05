@@ -50,6 +50,10 @@
       tray = true;
     };
 
+    keepassx = {
+      enable = true;
+    };
+
     gpg-agent = {
       enable = true;
       maxCacheTtl = 300;
