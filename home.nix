@@ -5,6 +5,7 @@
     ./home/core.nix
     ./home/desktop.nix
     ./home/keyboard.nix
+    ./home/paper.nix
 
     ./home/browsers.nix
     ./home/comms.nix
