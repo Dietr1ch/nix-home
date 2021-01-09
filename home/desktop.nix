@@ -29,6 +29,11 @@
       inkscape
       gwenview
 
+      # Internet
+      # --------
+      transmission-qt
+      filezilla
+
       # Misc
       # ----
       vokoscreen
