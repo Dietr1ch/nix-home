@@ -18,6 +18,7 @@
 
     ssh = {
       enable = true;
+      compression = true;
       controlMaster = "auto";
       controlPath = "/run/user/%i/ssh-socket-%l-%r@%h:%p";
       serverAliveInterval = 10;  # 10s
