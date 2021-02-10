@@ -15,7 +15,7 @@
 
   services = {
     xcape = {
-      enable = true;
+      enable = false;
       mapExpression = {
         Shift_L = "Escape";
         Shift_R = "Escape";
