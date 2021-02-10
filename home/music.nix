@@ -6,6 +6,9 @@
       ncmpcpp
       cantata
 
+      audacity
+
+      ffmpeg
       sox
     ];
   };
