@@ -3,13 +3,13 @@
 {
   programs = {
     emacs.enable = true;
-    vscode.enable = true;
   };
 
   home = {
     packages = with pkgs; [
       # emacs  # (Using programs.emacs)
       neovim
+      vscodium
 
       meld
     ];
