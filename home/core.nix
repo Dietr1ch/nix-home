@@ -39,6 +39,7 @@
       # Tools
       htop
       ncdu
+      lnav
 
       # Programming
       # -----------
