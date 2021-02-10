@@ -304,6 +304,9 @@ with import <nixpkgs> {};
       fd
       tokei
 
+      # Documentation
+      manix
+
       # Tools
       dust
       hyperfine
