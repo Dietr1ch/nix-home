@@ -96,7 +96,7 @@ with import <nixpkgs> {};
           src = pkgs.fetchFromGitHub {
             owner = "oh-my-fish";
             repo = "plugin-config";
-            rev = "13c424efb73b153d9b8ad92916cf51159d44099d";
+            rev = "13c424efb73b153d9b8ad92916cf51159d44099d";  # master on 2021-02-09. Updated on 2016-03-18
             sha256 = "0x1rs89pmj5i8md2ihaw7dq62rz0qgkfky9vply5nx3immd66y6v";
           };
         }
@@ -108,7 +108,7 @@ with import <nixpkgs> {};
             # owner = "sagebind";
             owner = "Dietr1ch";
             repo = "tmux-zen";
-            rev = "b520072db3d0e56c6da7163b1455629e7d16d57a";
+            rev = "b520072db3d0e56c6da7163b1455629e7d16d57a";  # master on 2021-02-09. Updated on 2018-10-08
             sha256 = "075i3sa8zr2akb8x79srgrr3q057ca8x9irp5g5wwq40yrqf7nk6";
           };
         }
@@ -119,8 +119,8 @@ with import <nixpkgs> {};
           src = pkgs.fetchFromGitHub {
             owner = "gazorby";
             repo = "fish-abbreviation-tips";
-            rev = "b3d0c01f4cab9b91eeaeead147a3593793d22fe5";
-            sha256 = "1r4ywmrs5sjm5rzv3fq3vi9k7nx6rin5hw3jqylbfmgsimsd1j8r";
+            rev = "0be97640909fb20de51ff9ed9bcbda0bd2b28b36";  # master on 2021-02-09. Updated on 2020-11-11
+            sha256 = "1bsn0rjnxnqygkg1q8pnqmbsqiscbyvx4xkpds8pnyi55jhrs5s2";
           };
         }
 
@@ -135,8 +135,8 @@ with import <nixpkgs> {};
           src = pkgs.fetchFromGitHub {
             owner = "franciscolourenco";
             repo = "done";
-            rev = "4503af92f5425b4169d3915f7c9297437f42bfe1";
-            sha256 = "0blw12azcq8f5fd26lyfd6bshg60b1ra9ldcpmb8jk7c7ban7ynp";
+            rev = "f7886fdc26cd849ddf21fb05d516548914dd060a";  # master on 2021-02-09. Updated on 2021-01-24
+            sha256 = "1i7k59kjik41b7mww6d1qbi66vswplmvjdscinyf60irbrsbc5bv";
           };
         }
 
@@ -146,7 +146,7 @@ with import <nixpkgs> {};
           src = pkgs.fetchFromGitHub {
             owner = "laughedelic";
             repo = "pisces";
-            rev = "1b299fe6839361fdaa7c0ed6a42ae14fefc50ff6";
+            rev = "e45e0869855d089ba1e628b6248434b2dfa709c4";  # master on 2021-02-09. Updated on 2020-11-30
             sha256 = "0lhfqyq1gbcwidcpdybbsbhq6nqv081mcvhl6ilsi8sld7303ibq";
           };
         }
