@@ -19,6 +19,9 @@
   ];
 
   home = {
+    username = "dietr1ch";
+    homeDirectory = "/home/dietr1ch";
+
     packages = with pkgs; [
       ispell
 
