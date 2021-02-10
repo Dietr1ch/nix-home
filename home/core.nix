@@ -60,6 +60,8 @@
       jq
       fzf
       fzy
+      # LSP
+      rnix-lsp
 
       # Images
       # ------
