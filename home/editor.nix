@@ -15,7 +15,7 @@
     ];
 
     sessionVariables = {
-      EDITOR = "emacseditor -c";
+      EDITOR = "emacsclient --create-frame --alternate-editor emacs";
     };
   };
 
