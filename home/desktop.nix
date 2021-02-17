@@ -62,8 +62,11 @@
 
     gpg-agent = {
       enable = true;
-      maxCacheTtl = 300;
+
+      grabKeyboardAndMouse = true;
       enableSshSupport = true;
+
+      maxCacheTtl = 5 * 60;  # 5m
     };
 
     unclutter = {
