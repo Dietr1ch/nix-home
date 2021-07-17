@@ -31,6 +31,8 @@ with import <nixpkgs> {};
         py = "python";
         ipy = "ipython";
 
+        # Editors
+        # -------
         e = "emacsclient -c -nw";
         ec = "emacsclient";
         ee = "emacsclient -c";
@@ -38,38 +40,61 @@ with import <nixpkgs> {};
         v = "vim";
         n = "nvim";
 
+        # Git
+        # ---
         g = "git";
-        gCL = "git clone";
-        gPP = "git push --force-with-lease";
-        gR = "git remote";
-        ga = "git add";
-        gb = "git branch";
-        gbl = "git blame";
-        gc = "git commit";
-        gcl = "git clone --recursive";
-        gco = "git checkout";
-        gcp = "git cherry-pick";
-        gd = "git diff";
-        gdc = "git diff --cached";
-        gds = "git diff --stat";
-        gdw = "git diff --ignore-all-space";
-        gf = "git fetch";
-        gfa = "git fetch --all";
-        gl = "git l";
-        gla = "git la";
-        gll = "git ll";
-        glla = "git lla";
-        gm = "git merge";
-        gp = "git pull";
-        gpp = "git push";
-        gr = "git rebase -i";
-        gra = "git rebase --abort";
-        grc = "git rebase --continue";
-        grm = "git rm --cached";
+
         gs = "git status";
         gss = "git status .";
         gst = "git stash";
 
+        gh = "git h";
+        gls = "git ls";
+        gll = "git ll";
+        glla = "git lla";
+
+        ge = "git exec .";
+
+        gd = "git diff";
+        gdw = "git diff --ignore-all-space";
+        gdc = "git diff --cached";
+        gds = "git diff --stat";
+        gdcs = "git diff --cached --stat";
+
+        gbl = "git blame";
+
+        gcl = "git clone --recursive";
+        gCL = "git clone";
+
+        ga = "git add";
+        grm = "git rm --cached";
+        gc = "git commit";
+        gam = "git commit --amend";
+
+        gco = "git checkout";
+
+        gr = "git rebase --interactive";
+        grc = "git rebase --continue";
+        gra = "git rebase --abort";
+
+        gb = "git branch";
+
+        grv = "git remote -v";
+
+        gf = "git fetch";
+        gfa = "git fetch --all";
+        gp = "git pull";
+
+        gpp = "git push";
+        gppu = "git push --set-upstream";
+        gPP = "git push --force-with-lease";
+
+        gcp = "git cherry-pick";
+
+        gm = "git merge";
+
+        # systemd
+        # -------
         sc = "systemctl";
         scu = "systemctl  --user";
         sj = "journalctl";

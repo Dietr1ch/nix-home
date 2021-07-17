@@ -12,8 +12,22 @@
 
     git = {
       enable = true;
-      # aliases = {
-      # };
+
+      userName = "Dietrich Daroch";
+      userEmail = "Dietrich.Daroch@gmail.com";
+      aliases = {
+        "exec" = "!exec ";
+
+        "h" = "log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short";
+        "ll" = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%<(12)%ar)%C(reset)  %s%C(dim white) - %an  %C(auto)%d%C(reset)'";
+        "lla" = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%<(12)%ar)%C(reset)  %s%C(dim white) - %an  %C(auto)%d%C(reset)' --all";
+
+        "publish" = "!sh -c 'git push -u origin $(git branch-name)'";
+        "unpublish" = "!sh -c 'git push -u origin :$(git branch-name)'";
+
+        "branch-name" = "rev-parse --abbrev-ref HEAD";
+        "ls" = "!sh -c 'git ls-tree --name-only -r $(git branch-name)'";
+      };
     };
 
     ssh = {
