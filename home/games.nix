@@ -15,7 +15,6 @@
 
       # Streaming
       obs-studio
-      obs-v4l2sink
     ];
   };
 }
