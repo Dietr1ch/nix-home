@@ -181,8 +181,8 @@ in
           src = pkgs.fetchFromGitHub {
             owner = "laughedelic";
             repo = "pisces";
-            rev = "e45e0869855d089ba1e628b6248434b2dfa709c4";  # master on 2021-02-09. Updated on 2020-11-30
-            sha256 = "0lhfqyq1gbcwidcpdybbsbhq6nqv081mcvhl6ilsi8sld7303ibq";
+            rev = "e45e0869855d089ba1e628b6248434b2dfa709c4";  # master on 2021-07-21. Updated on 2020-11-30
+            sha256 = "073wb83qcn0hfkywjcly64k6pf0d7z5nxxwls5sa80jdwchvd2rs";
           };
         }
 
