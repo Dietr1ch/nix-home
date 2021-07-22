@@ -12,6 +12,9 @@
       vscodium
 
       meld
+
+      # Used by emacs
+      sqlite
     ];
 
     sessionVariables = {
