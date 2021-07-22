@@ -2,6 +2,16 @@
 
 with import <nixpkgs> {};
 
+let
+  # Tmux
+  # ====
+  # Tmux colors
+  # for i in {0..255}; do
+  #   printf "\x1b[38;5;${i}mcolour${i}\x1b[0m\n"
+  # done
+  tmux_color_status_bar = "colour110";
+  tmux_status_position = "bottom";
+in
 {
   programs = {
     alacritty = {
@@ -202,17 +212,151 @@ with import <nixpkgs> {};
     };
     tmux = {
       enable = true;
+
+      shortcut = "h";
+
       keyMode = "vi";
+      aggressiveResize = true;
+      newSession = true;
       escapeTime = 0;
       clock24 = true;
+
       extraConfig = ''
-        source-file ~/.config/tmux/base
+        # Use truecolor
+        set -g default-terminal "tmux-256color"
+        set -ga terminal-overrides ",alacritty:RGB"
+
+        # Use mouse
+        set -g mouse on
+        # Don't rename windows automatically
+        set-option -g allow-rename off
+
+        # Notifications
+        # -------------
+        set-option -g visual-activity off
+        set-option -g visual-bell on
+        set-option -g visual-silence on
+        set-window-option -g monitor-activity on
+        set-option -g bell-action none
+
+        # Bindings
+        # --------
+        ##bind | split-window -h -c "#{pane_current_path}"
+        ##bind - split-window -v -c "#{pane_current_path}"
+        ##bind c new-window -c "#{pane_current_path}"
+        bind-key r source-file ~/.tmux.conf \; display-message "Reloaded!"
+        bind-key -T prefix space choose-tree -s
+        bind-key -T prefix S new-session\; command-prompt -I "#S" "rename-session '%%'"
+        bind-key -T prefix t new-window -c "#{pane_current_path}"
+        bind-key -T prefix C-t new-window -c "#{pane_current_path}"
+        bind-key -T prefix T new-window
+        bind-key -T prefix c clock-mode
+
+        # Custom bindings
+        bind C-m command-prompt -p "man" "split-window -h 'exec man %%'"
+        bind-key -T prefix Z set-window-option monitor-activity off \; display-message "Disabled Monitoring!"
+
+        # vi Bindings
+        set-window-option -g mode-keys vi
+        bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+        # vi Bindings - Panes
+        bind-key -T prefix '\' split-window -h -c "#{pane_current_path}"
+        bind-key -T prefix - split-window -v -c "#{pane_current_path}"
+        bind-key -T prefix C-v split-window -h -c "#{pane_current_path}"
+        bind-key -T prefix C-- split-window -v -c "#{pane_current_path}"
+        bind-key -T prefix | split-window -h -c "$HOME"
+        bind-key -T prefix _ split-window -v -c "$HOME"
+        bind-key -T prefix b select-pane -t :.+
+        bind-key -T prefix h select-pane -L
+        bind-key -T prefix l select-pane -R
+        bind-key -T prefix k select-pane -U
+        bind-key -T prefix j select-pane -D
+        # vi Bindings - Windows
+        bind-key -T prefix H previous-window
+        bind-key -T prefix L next-window
+        bind-key -T prefix w last-window
+        bind-key -T prefix tab last-window
+
+        # Theme
+        # -----
+        STATUS_BAR=${tmux_color_status_bar}
+
+        HIGHLIGHT=colour155
+        HIGHLIGHT_ALT=colour50
+        DIMINISH=colour137
+        DIMINISH_ALT=colour138
+
+        STATUS_FG=colour250
+        STATUS_BG=colour236
+        STATUS_FG_ACTIVE=colour255
+        STATUS_BG_ACTIVE=colour238
+        STATUS_ALERT_FG=colour52
+        STATUS_ALERT_BG=$STATUS_BG
+
+        ## Status bar design
+        # status line
+        set -g status on
+        set -g status-interval 2
+        set -g status-justify centre
+
+        # messaging
+        set -g message-command-style fg=blue,bg=black
+
+        # Modes {
+        setw -g clock-mode-colour $STATUS_BAR
+        setw -g mode-style fg=colour196,bg=$STATUS_BG_ACTIVE,bold
+        # }
+
+        # Panes {
+        set -g pane-border-style fg=$STATUS_BG_ACTIVE,bg=$STATUS_BG
+        set -g pane-active-border-style fg=$STATUS_BAR,bg=$STATUS_BG
+        # }
+
+        # Statusbar {
+        set -g status-position ${tmux_status_position}
+        set -g status-style fg=$STATUS_FG,bg=$STATUS_BAR,dim
+        set -g status-left "#[bg=$STATUS_BG]#[fg=$DIMINISH]#H #[fg=$STATUS_FG,bold]#S#[bg=$STATUS_BAR,fg=$STATUS_BG]"
+        set -g status-right "#[bg=$STATUS_BAR,fg=$STATUS_BG]#[bg=$STATUS_BG,fg=$STATUS_FG_ACTIVE,bold]%H:%M #[fg=$STATUS_FG_ACTIVE,nobold]%a %d/%m/%Y"
+        set -g status-left-length 40
+        set -g status-right-length 30
+
+        setw -g window-status-current-style fg=$STATUS_FG_ACTIVE,bg=$STATUS_BG_ACTIVE,bold
+        setw -g window-status-current-format "#[bg=$STATUS_BAR,fg=$STATUS_BG_ACTIVE]#[fg=$HIGHLIGHT,bg=$STATUS_BG_ACTIVE]#I #[fg=$STATUS_FG_ACTIVE]#W #[fg=$HIGHLIGHT_ALT]#F#[bg=$STATUS_BAR,fg=$STATUS_BG_ACTIVE]"
+
+        setw -g window-status-format " #[fg=$DIMINISH_ALT]#I #[fg=$STATUS_FG]#W #[fg=$DIMINISH_ALT]#F "
+        setw -g window-status-style fg=$STATUS_FG,bg=$STATUS_BG,none
+
+        setw -g window-status-activity-style fg=$STATUS_ALERT_BG,bg=$STATUS_ALERT_FG,none
+
+        setw -g window-status-bell-style fg=$STATUS_FG_ACTIVE,bg=colour1,bold
+        # }
+
+        set -g message-style fg=colour232,bg=colour166,bold
       '';
-      # plugins = [
-      #   {
-      #     plugin = "";
-      #   }
-      # ];
+
+      # Plugins
+      # -------
+      sensibleOnTop = true;
+      plugins = with pkgs; [
+         tmuxPlugins.cpu
+         {
+           plugin = tmuxPlugins.resurrect;
+           extraConfig = ''
+             set -g @resurrect-strategy-nvim 'session'
+             set -g @resurrect-processes 'ssh mosh'
+           '';
+         }
+         {
+           plugin = tmuxPlugins.continuum;
+           extraConfig = ''
+             set -g @continuum-restore 'on'
+             set -g @continuum-save-interval '60' # minutes
+           '';
+         }
+         tmuxPlugins.copycat
+         tmuxPlugins.open
+         tmuxPlugins.yank
+      ];
     };
     starship = {
       enable = true;
@@ -341,7 +485,6 @@ with import <nixpkgs> {};
     ];
 
     file = {
-
       ".config/tmux/tpm".source = fetchFromGitHub {
          owner = "tmux-plugins";
          repo = "tpm";
