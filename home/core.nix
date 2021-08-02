@@ -57,6 +57,8 @@
 
       # Programming
       # -----------
+      # File watching
+      inotify-tools
       # Source control
       git
       gitflow
