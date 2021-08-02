@@ -210,6 +210,11 @@ in
         # }
       ];
     };
+
+    nushell = {
+      enable = true;
+    };
+
     tmux = {
       enable = true;
 
@@ -457,10 +462,6 @@ in
       yakuake
       # Fonts
       powerline-fonts
-
-      # Shells
-      # fish  # (Using programs.fish)
-      nushell
 
       # Fancy stuff
       libnotify
