@@ -15,6 +15,7 @@
 
       # Streaming
       obs-studio
+      v4l-utils
     ];
   };
 }

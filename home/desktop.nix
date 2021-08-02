@@ -16,6 +16,8 @@
       unzip
       # Encrypt
       plasma-vault
+      # tablet
+      rmview
 
       # Video
       # -----
