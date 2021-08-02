@@ -10,6 +10,8 @@
 
       ffmpeg
       sox
+
+      k3b
     ];
   };
 
