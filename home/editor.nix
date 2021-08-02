@@ -7,14 +7,16 @@
 
   home = {
     packages = with pkgs; [
-      # emacs  # (Using programs.emacs)
+      # emacs
+      # -----
+      # org-roam
+      sqlite
+      graphviz
+
       neovim
       vscodium
 
       meld
-
-      # Used by emacs
-      sqlite
     ];
 
     sessionVariables = {
@@ -23,6 +25,8 @@
   };
 
   services = {
-    emacs.enable = true;
+    emacs = {
+      enable = true;
+    };
   };
 }
