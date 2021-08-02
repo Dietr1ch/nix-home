@@ -59,6 +59,7 @@
       # -----------
       # Source control
       git
+      gitflow
       gitAndTools.git-absorb
       gitAndTools.git-appraise
       gitAndTools.git-ignore
