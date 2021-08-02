@@ -5,6 +5,7 @@
     packages = with pkgs; [
       # Documents
       # ---------
+      libreoffice-fresh
       okular
       # Tools
       pandoc
