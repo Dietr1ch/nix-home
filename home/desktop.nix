@@ -11,6 +11,7 @@
       pandoc
       texlive.combined.scheme-tetex  # more than the medium, but nowhere near the full scheme.
       # Sync
+      ipfs
       brig
       # Extract
       ark
