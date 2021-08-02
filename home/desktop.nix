@@ -8,7 +8,7 @@
       okular
       # Tools
       pandoc
-      texlive.combined.scheme-medium
+      texlive.combined.scheme-tetex  # more than the medium, but nowhere near the full scheme.
       # Sync
       brig
       # Extract
