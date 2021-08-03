@@ -367,7 +367,7 @@ in
       enable = true;
       settings = {
         add_newline = true;
-        character.symbol = "❯\n";
+        character = "❯";
 
         crystal.disabled = false;
         dotnet.disabled = false;
@@ -444,7 +444,6 @@ in
           # "$env_var"
 
           "$character"
-          "\n\n"
         ];
       };
     };
