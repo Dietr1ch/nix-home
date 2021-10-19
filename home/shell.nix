@@ -482,6 +482,7 @@ in
       bottom
       tealdeer
       bandwhich
+      trash-cli
     ];
 
     file = {
