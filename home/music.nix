@@ -3,7 +3,6 @@
 {
   home = {
     packages = with pkgs; [
-      ncmpcpp
       cantata
 
       audacity
@@ -115,6 +114,27 @@
           };
         };
       };
+    };
+
+    # https://github.com/nix-community/home-manager/blob/master/modules/programs/ncmpcpp.nix
+    ncmpcpp = {
+      enable = true;
+
+      bindings = [
+        # https://gist.github.com/Soft/959188/1ffff2f3360b651c74bb9b7b5c6d854ab71b7d08
+        { key = "j"; command = "scroll_down"; }
+        { key = "k"; command = "scroll_up"; }
+        { key = "J"; command = [ "select_item" "scroll_down" ]; }
+        { key = "K"; command = [ "select_item" "scroll_up" ]; }
+        { key = "ctrl-u"; command = [ "page_up" ]; }
+        { key = "ctrl-d"; command = [ "page_down" ]; }
+
+        { key = "n"; command = [ "next_found_item" ]; }
+        { key = "N"; command = [ "previous_found_item" ]; }
+
+        { key = "."; command = [ "show_lyrics" ]; }
+
+      ];
     };
   };
 
