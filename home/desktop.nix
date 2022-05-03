@@ -12,6 +12,7 @@
       # texlive.combined.scheme-medium
       # texlive.combined.scheme-tetex  # "more" than the medium, but nowhere near the full scheme.
       texlive.combined.scheme-full
+      python39Packages.pygments
       # Dictionaries
       hunspell
       hunspellDicts.en_US-large
