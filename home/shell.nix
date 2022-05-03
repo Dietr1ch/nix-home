@@ -459,8 +459,6 @@ in
       alacritty
       konsole
       yakuake
-      # Fonts
-      powerline-fonts
 
       # Fancy stuff
       libnotify

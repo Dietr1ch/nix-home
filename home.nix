@@ -14,6 +14,7 @@
     ./home/guitar.nix
     ./home/music.nix
     ./home/shell.nix
+    ./home/fonts.nix
 
     ./home/mail.nix
   ];
