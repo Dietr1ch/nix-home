@@ -34,6 +34,12 @@
         "branch-name" = "rev-parse --abbrev-ref HEAD";
         "ls" = "!sh -c 'git ls-tree --name-only -r $(git branch-name)'";
       };
+
+      extraConfig = {
+        init = {
+          defaultBranch = "master";
+        };
+      };
     };
 
     ssh = {
