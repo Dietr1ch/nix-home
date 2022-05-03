@@ -87,8 +87,18 @@ in
   programs = {
     firefox = {
       enable = true;
+      package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
+        forceWayland = true;
+        extraPolicies = {
+          ExtensionSettings = {};
+        };
+      };
     };
+
     # qutebrowser.enable = true;
     chromium.enable = true;
+  };
+  home.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = 1;
   };
 }
