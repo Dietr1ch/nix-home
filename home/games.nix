@@ -16,6 +16,10 @@
       # Streaming
       obs-studio
       v4l-utils
+
+      # Games
+      knetwalk
+      knights
     ];
   };
 }
