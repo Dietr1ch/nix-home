@@ -10,6 +10,14 @@
       # Tools
       pandoc
       texlive.combined.scheme-tetex  # more than the medium, but nowhere near the full scheme.
+      # Dictionaries
+      hunspell
+      hunspellDicts.en_US-large
+      hunspellDicts.en_GB-large
+      hunspellDicts.es_CL
+      hunspellDicts.es_ES
+      hunspellDicts.de_CH
+      hunspellDicts.de_DE
       # Sync
       ipfs
       brig
