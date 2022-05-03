@@ -365,9 +365,11 @@ in
     };
     starship = {
       enable = true;
+      # https://starship.rs/config
       settings = {
         add_newline = true;
-        character = "❯";
+        # https://starship.rs/config/#character
+        character.success_symbol = "❯";
 
         crystal.disabled = false;
         dotnet.disabled = false;
