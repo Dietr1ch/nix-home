@@ -4,7 +4,9 @@
   programs = {
     emacs = {
       enable = true;
+
       package = pkgs.emacsPgtkGcc;
+      # package = pkgs.emacsUnstable;
       extraPackages = epkgs: with epkgs; [
         # exwm
         emacsql-sqlite
@@ -29,13 +31,24 @@
     ];
 
     sessionVariables = {
-      EDITOR = "emacsclient --create-frame --alternate-editor emacs";
+      EDITOR = "emacsclient --create-frame --alternate-editor 'false'";
+      LSP_USE_PLISTS = "true";
     };
   };
 
   services = {
     emacs = {
       enable = true;
+      defaultEditor = true;
+
+      client = {
+        enable = true;
+        arguments = [
+          "--create-frame"
+          "--alternate-editor"
+          "false"
+        ];
+      };
     };
   };
 
