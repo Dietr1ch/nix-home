@@ -90,6 +90,7 @@
       jq
       fzf
       fzy
+      httpie
       # LSP
       rnix-lsp
 
