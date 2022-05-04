@@ -3,6 +3,10 @@
 {
   home = {
     packages = with pkgs; [
+      # Backups
+      # -------
+      restique
+
       # Documents
       # ---------
       libreoffice-fresh
