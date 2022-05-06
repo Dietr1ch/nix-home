@@ -477,7 +477,7 @@ in
       manix
 
       # Tools
-      dust
+      du-dust
       hyperfine
       bottom
       tealdeer
