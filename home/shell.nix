@@ -120,6 +120,21 @@ in
           '';
         };
 
+        gen_sshkey = {
+          body = ''
+            set -l name $argv[1]
+
+            echo "Creating new key at ~/.secrets/ssh/$name"
+            ssh-keygen \
+              -a 128 \
+              -t 'ed25519' \
+              -C "$USER@$(hostname)" \
+              -f ~/.secrets/ssh/$name
+
+            echo "Key fingerprint:"
+            cat ~/.secrets/ssh/$name.pub
+          '';
+        };
         _xdg_check = {
           body = ''
             echo "HOME = '$HOME'"
