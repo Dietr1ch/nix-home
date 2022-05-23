@@ -44,13 +44,21 @@
 
     ssh = {
       enable = true;
+
       compression = true;
       controlMaster = "auto";
-      controlPath = "/run/user/%i/ssh-socket-%l-%r@%h:%p";
-      serverAliveInterval = 10;  # 10s
-      # serverAliveCountMax = 3;   # Disconnect at the 3rd lost keep-alive.
+      controlPersist = "3m";
+      controlPath = "$\{XDG_RUNTIME_DIR\}/ssh-socket-%l-%r@%h:%p";
+      serverAliveInterval = 3;  # 3s
+      serverAliveCountMax = 3;  # Up to 3 in-flight heartbeats
+
+      userKnownHostsFile = "$\{XDG_CONFIG_HOME\}/ssh/known_hosts";
+
+      hashKnownHosts = true;
+      forwardAgent = false;
+
       extraConfig = ''
-        Include /home/dietr1ch/.config/ssh/config.d/*
+        Include ''${XDG_CONFIG_HOME}/ssh/config.d/*
       '';
     };
 
