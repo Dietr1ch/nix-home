@@ -119,6 +119,40 @@ in
             set_color normal
           '';
         };
+
+        _xdg_check = {
+          body = ''
+            echo "HOME = '$HOME'"
+            if not test -d $HOME
+              echo "HOME is not set (HOME=$HOME). Won't check things."
+              return
+            end
+
+            echo "Checking XDG paths..."
+            if test -z XDG_CONFIG_HOME
+              echo "XDG_CONFIG_HOME not set. Adding a default"
+              set --universal --export XDG_CONFIG_HOME $HOME/.config
+              mkdir -p $XDG_CONFIG_HOME
+            end
+            if test -z XDG_CACHE_HOME
+              echo "XDG_CACHE_HOME not set. Adding a default"
+              set --universal --export XDG_CACHE_HOME $HOME/.cache
+              mkdir -p $XDG_CACHE_HOME
+            end
+            if test -z XDG_DATA_HOME
+              echo "XDG_DATA_HOME not set. Adding a default"
+              set --universal --export XDG_DATA_HOME $HOME/.local/share
+              mkdir -p $XDG_DATA_HOME
+            end
+            if test -z XDG_STATE_HOME
+              echo "XDG_STATE_HOME not set. Adding a default"
+              set --universal --export XDG_STATE_HOME $HOME/.local/state
+              mkdir -p $XDG_STATE_HOME
+            end
+
+            env | grep --color '^XDG_[^\=]+='
+          '';
+        };
       };
       plugins = [
         # You can get the fingerprint with
