@@ -9,6 +9,7 @@
 
       # Documents
       # ---------
+      logseq
       libreoffice-fresh
       okular
       # Tools
